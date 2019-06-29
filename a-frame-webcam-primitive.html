@@ -8,42 +8,6 @@
 <script src="components.js"></script>
 <script>
 
-var hash_fences = {};
-
-function ce(t,a){ var f = document.createElement(t); for(var k in a) f.setAttribute(k, a[k]); return f; }
-
-function load_hash(d){
-	
-	hash_fences[d.hash] = d.objects;
-	
-	for(var i=0; i<d.objects.length; i++){
-		
-		var
-			o = d.objects[i],
-			element_id = 'fence_' + o.id.replace(':', '_')
-		;
-		
-		if(!document.getElementById(element_id)){
-			
-			fences.appendChild( ce(
-				'a-entity',
-				{
-					'id': element_id,
-					'collada-model-legacy': 'https://yaglov.ru/cadastre/fence.php?id='+encodeURIComponent(o.id),
-					'gps-place': 'longitude: '+o.extent.xmin+'; latitude: '+o.extent.ymin,
-					'transparent-texture': '',
-					'data-cn': o.id
-				}
-			) );
-			
-		}
-		
-	}
-	
-}
-
-
-
 window.onload = function(){
 	
 	var camera = document.getElementById('camera');
